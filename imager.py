@@ -1,5 +1,6 @@
 import sys
-sys.path.append('/usr/local/Cellar/pymol/3.0.0/libexec/lib/python3.12/site-packages')
+# sys.path.append('/usr/local/Cellar/pymol/3.0.0/libexec/lib/python3.12/site-packages') # Desktop
+sys.path.append('/opt/homebrew/Cellar/pymol/3.0.0/libexec/lib/python3.12/site-packages/') # M1
 from pymol import cmd
 import numpy as np
 
@@ -145,7 +146,7 @@ def render_molecular_surface(pdb_file, output_prefix, views, surface_type="surfa
 
         # Render and save the image
         output_image = f"{output_prefix}_view{i+1}.png"
-        cmd.draw(width=512, height=512, antialias=0)  # Adjust dimensions and resolution as needed
+        cmd.ray(width=512, height=512)  # Adjust dimensions and resolution as needed
         cmd.png(output_image)
         print(f"Image saved to {output_image}")
 
