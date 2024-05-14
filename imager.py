@@ -131,9 +131,6 @@ def render_molecular_surface(pdb_file, output_prefix, views, surface_type="surfa
     # cmd.set("bg_rgb", [1, 1, 1]) 
 
     for i, view in enumerate(views):
-        # Set the viewpoint (corrected 18-element vector)
-        print(i)
-        print(view)
         cmd.reset() # Initial default view
 
         # Apply rotation based on the view
@@ -149,10 +146,3 @@ def render_molecular_surface(pdb_file, output_prefix, views, surface_type="surfa
         cmd.ray(width=512, height=512)  # Adjust dimensions and resolution as needed
         cmd.png(output_image)
         print(f"Image saved to {output_image}")
-
-# Example usage
-pdb_file = "AFmodel.pdb"  # Replace with your actual PDB file path
-output_prefix = "protein_surface" 
-
-optimal_views = find_optimal_views(pdb_file)
-render_molecular_surface(pdb_file, output_prefix, optimal_views)
