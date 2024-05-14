@@ -1,8 +1,12 @@
 import imager  # Assuming your rendering functions are in a module called 'imager'
 from download_alphafold_pdb import download_alphafold_pdb
+import pandas as pd
+import sys
 
 def main():
-    uniprot_ids = ["Q5VSL9"]  # Example UniProt IDs
+    proteome_file = pd.read_excel(sys.argv[1])
+    uniprot_ids = proteome_file['Entry'].tolist()
+    # uniprot_ids = ["H6WB16"]  # Example UniProt IDs
 
     for uniprot_id in uniprot_ids:
         # 1. Download PDB
