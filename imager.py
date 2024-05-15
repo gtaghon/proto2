@@ -1,6 +1,6 @@
 import sys
-# sys.path.append('/usr/local/Cellar/pymol/3.0.0/libexec/lib/python3.12/site-packages') # Desktop
-sys.path.append('/opt/homebrew/Cellar/pymol/3.0.0/libexec/lib/python3.12/site-packages/') # M1
+sys.path.append('/usr/local/Cellar/pymol/3.0.0/libexec/lib/python3.12/site-packages') # Desktop
+# sys.path.append('/opt/homebrew/Cellar/pymol/3.0.0/libexec/lib/python3.12/site-packages/') # M1
 from pymol import cmd
 import numpy as np
 from Bio.PDB import PDBParser
@@ -124,7 +124,7 @@ def render_molecular_surface(pdb_file, output_prefix, views, surface_type="surfa
     cmd.show(surface_type)  
 
     # Customize the appearance (optional)
-    cmd.set("transparency", 0.4)
+    # cmd.set("transparency", 0.4)
     cmd.set("orthoscopic", "off")
     cmd.set("ray_trace_mode", 0)
     yrb()
