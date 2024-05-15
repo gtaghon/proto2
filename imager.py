@@ -3,6 +3,9 @@ import sys
 sys.path.append('/opt/homebrew/Cellar/pymol/3.0.0/libexec/lib/python3.12/site-packages/') # M1
 from pymol import cmd
 import numpy as np
+from Bio.PDB import PDBParser
+
+parser = PDBParser()
 
 def find_optimal_views(pdb_file):
     """Calculates 4 orthogonal views with minimal surface overlap.
@@ -14,10 +17,7 @@ def find_optimal_views(pdb_file):
         list: A list of tuples, each representing a view as (x, y, z) in degrees.
     """
 
-    from Bio.PDB import PDBParser
-
     # Load the PDB structure
-    parser = PDBParser()
     structure = parser.get_structure("protein", pdb_file)
 
     # Extract atom coordinates
@@ -117,7 +117,7 @@ def render_molecular_surface(pdb_file, output_prefix, views, surface_type="surfa
         pdb_file (str): Path to the input PDB file.
         output_prefix (str): Prefix for output image filenames.
         views (list): List of tuples, each representing a view as (x, y, z) in degrees.
-        surface_type (str, optional): Type of structure to render. Defaults to "surface".
+        surface_type (str): Type of structure to render. Defaults to "surface".
     """
     
     cmd.load(pdb_file)
