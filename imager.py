@@ -139,7 +139,7 @@ def render_molecular_surface(pdb_file, output_prefix, views, surface_type="surfa
         cmd.rotate("z", view[2])
 		
         # Zoom to include the entire model in frame
-        cmd.zoom(complete=1)
+        cmd.zoom(complete=1, buffer=2.0)
 
         # Render and save the image
         output_image = f"{output_prefix}_view{i+1}.png"
