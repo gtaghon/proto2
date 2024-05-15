@@ -1,6 +1,4 @@
 import sys
-# sys.path.append('/usr/local/Cellar/pymol/3.0.0/libexec/lib/python3.12/site-packages') # Desktop
-sys.path.append('/opt/homebrew/Cellar/pymol/3.0.0/libexec/lib/python3.12/site-packages/') # M1
 from pymol import cmd
 import numpy as np
 
